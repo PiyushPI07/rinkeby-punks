@@ -12,5 +12,5 @@ Youtube - []()
 
 ### Contact Info
 - Discord ID - piyush #5674
-- Email ID - [](mailto:ingalepiyush459@gmail.com)
-- Gitcoin - []()
+- Email ID - [ingalepiyush459@gmail.com](mailto:ingalepiyush459@gmail.com)
+- Gitcoin - [PiyushPI07](https://gitcoin.co/piyushpi07)
