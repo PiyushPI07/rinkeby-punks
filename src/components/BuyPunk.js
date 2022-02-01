@@ -9,10 +9,8 @@ import abi from "../abi/abi.json";
 export default function BuyPunl(props) {
 
     const { imageNo, owner } = props;
-    const { user, punkPrice } = useAuth()
-    const contractAddr = "0xfb6B832Ff91664620E699B0dc615996A6E80Ec0C";
-    console.log(process.env.REACT_APP_PRIVATE_KEY)
-
+    const { user } = useAuth()
+    const contractAddr = "0xDb6B1feb735B832E85BdB4A8aa0C12Fc2B11F0DC";
 
     const handleSubmit = async () => {
         const { ethereum } = window; //injected by metamask
@@ -26,13 +24,11 @@ export default function BuyPunl(props) {
 
             //connects with the contract
             const connectedContract = new ethers.Contract(contractAddr, abi.output.abi, wallet);
-            console.log(wallet)
-            console.log(signer)
 
             const params = [{
                 from: user.wallet_address,
                 to: owner,
-                value: ethers.utils.parseUnits(punkPrice[imageNo].toString(), 'ether').toHexString()
+                value: ethers.utils.parseUnits('0.1', 'ether').toHexString()
             }];
             await provider.send('eth_sendTransaction', params)
 
@@ -47,7 +43,6 @@ export default function BuyPunl(props) {
                 connectedContract.transferFrom(owner, user.wallet_address, imageNo, tx).then(()=>{
                     updateDoc(doc(db, "punks", "minted"), {
                         [imageNo] : {
-                            price: punkPrice[imageNo],
                             owner: user.wallet_address
                         }
                     }).then(()=>{

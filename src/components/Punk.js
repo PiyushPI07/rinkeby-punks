@@ -11,11 +11,11 @@ import BuyPunk from "./BuyPunk"
 
 export default function Punk(props) {
 
-    const { ownedPunks, mintedPunks, listedPunks, punkPrice } = useAuth();
+    const { ownedPunks, mintedPunks, listedPunks } = useAuth();
     const {imageSrc, imageNo} = props;
     const { onOpen, isOpen, onClose  } = useDisclosure()
     const [ owner, setOwner ] = useState("")
-    const contractAddr = "0xfb6B832Ff91664620E699B0dc615996A6E80Ec0C";
+    const contractAddr = "0xDb6B1feb735B832E85BdB4A8aa0C12Fc2B11F0DC";
     useEffect(() => {
         let isConnected = true;
         const getOwner = async () => {
@@ -35,7 +35,7 @@ export default function Punk(props) {
                 console.log(err);
             }
         }
-        
+
         if(isConnected) {
             getOwner()
           }
@@ -98,8 +98,8 @@ export default function Punk(props) {
                 <Box display='flex' mt='2' alignItems='center'>
                     Price: {mintedPunks.includes(imageNo.toString()) ? 
                         listedPunks.includes(imageNo.toString()) ? 
-                    punkPrice[imageNo]+
-                    " ETH" : "Not Set" : "FREE!" } 
+                    
+                    "0.1 ETH" : "Not Set" : "FREE!" } 
                 </Box>
 
                 Currently Owned by: 
@@ -118,7 +118,7 @@ export default function Punk(props) {
                     :
                     <BuyPunk imageNo={imageNo} owner={owner}/>
                     :
-                    <MintPunk imageNo={imageNo}/>
+                    <MintPunk imageNo={imageNo} owner={owner}/>
                     }
                 </ModalBody>
 
