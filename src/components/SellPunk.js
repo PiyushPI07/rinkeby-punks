@@ -10,7 +10,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { ethers } from "ethers";
 import abi from "../abi/abi.json";
 
-export default function SellTiger(props) {
+export default function SellPunk(props) {
 
     const { user } = useAuth()
     const { imageNo } = props;
@@ -37,7 +37,7 @@ export default function SellTiger(props) {
                 await connectedContract.approve("0x1A81FCbe4a7b9d43B831Ed47A1100262D47eB8cD", imageNo);
             }
 
-            await updateDoc(doc(db, "punks", "price"), {
+            await updateDoc(doc(db, "punks", "minted"), {
                 [imageNo] : {
                     price: priceRef.current.value,
                     owner: user.wallet_address

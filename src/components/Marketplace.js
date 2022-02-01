@@ -6,9 +6,8 @@ import { SimpleGrid } from '@chakra-ui/react';
 
 export default function Marketplace() {
 
-  const { mintedTigers, listedTigers } = useAuth();
-  console.log(listedTigers)
-  const listItems = mintedTigers.map((number, index)=>
+  const { listedPunks } = useAuth();
+  const listItems = listedPunks.map((number, index)=>
     <Punk key={index} imageNo={number}
       imageSrc={"https://www.larvalabs.com/cryptopunks/cryptopunk"+number+".png"}
     />
