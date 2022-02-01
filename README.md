@@ -8,7 +8,7 @@ Repo - [https://github.com/PiyushPI07/rinkeby-punks](https://github.com/PiyushPI
 Website (WIP) - [https://rinkeby-punks.vercel.app](https://rinkeby-punks.vercel.app)
 
 ### Recorded Video
-Youtube - []()
+Youtube - [https://youtu.be/4WRszYhFkb4](https://youtu.be/4WRszYhFkb4)
 
 ### Contact Info
 - Discord ID - piyush #5674
